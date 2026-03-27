@@ -1,65 +1,82 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-    body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
-    /* ... diğer stillerin ... */
-</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oğuzhan Ekici | Mobile Developer & Data Analyst</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body { background-color: #0f172a; color: #f8fafc; }
-        .card { background: #1e293b; border: 1px solid #334155; transition: 0.3s; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #0f172a; 
+            color: #f8fafc; 
+            scroll-behavior: smooth;
+        }
+        .card { 
+            background: #1e293b; 
+            border: 1px solid #334155; 
+            transition: all 0.3s ease; 
+        }
         .card:hover { 
-    border-color: #38bdf8; 
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
-}
+            border-color: #38bdf8; 
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -15px rgba(56, 189, 248, 0.3);
+        }
+        /* Gradient metin iyileştirmesi */
+        .text-gradient {
+            background: linear-gradient(to right, #38bdf8, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
-<body class="font-sans">
+<body class="font-sans antialiased">
     <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sky-900/20 via-slate-900 to-slate-900"></div>
 
-  <header class="max-w-4xl mx-auto pt-24 px-6 text-center"> 
-    <h1 class="text-4xl md:text-6xl font-bold mb-12 bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent pb-10 leading-[1.6]">
-        Oğuzhan Ekici
-    </h1>
+    <header class="max-w-4xl mx-auto pt-24 px-6 text-center"> 
+        <h1 class="text-5xl md:text-7xl font-bold mb-12 text-gradient pb-10 leading-[1.6]">
+            Oğuzhan Ekici
         </h1>
+        
         <p class="text-lg md:text-xl text-slate-400 mb-12 leading-loose">
             Yeditepe Üniversitesi Bilişim Sistemleri Mezunu <br>
-            <span class="text-sky-400 font-semibold">Data Analyst</span> & <span class="text-emerald-400 font-semibold">Mobile Developer</span>
+            <span class="text-sky-400 font-semibold italic">Data Analyst</span> & <span class="text-emerald-400 font-semibold italic">Mobile Developer</span>
         </p>
         
-        <div class="flex justify-center gap-6 mb-16">
-            <a href="Oguzhan_Ekici_CV.pdf" target="_blank" class="bg-sky-600 hover:bg-sky-500 transition-all px-8 py-3 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-sky-900/20 text-white">
-                <i class="fas fa-file-pdf"></i> Özgeçmişi Görüntüle
+        <div class="flex flex-wrap justify-center gap-6 mb-16">
+            <a href="Oguzhan_Ekici_CV.pdf" target="_blank" class="bg-sky-600 hover:bg-sky-500 transition-all px-8 py-3 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-sky-900/40 text-white">
+                <i class="fas fa-file-pdf text-xl"></i> Özgeçmişi Görüntüle
             </a>
 
-            <a href="https://www.linkedin.com/in/oguzhanekici" target="_blank" class="border border-slate-700 hover:bg-slate-800 transition-all px-8 py-3 rounded-full font-bold text-white">
-                LinkedIn Hesabı
+            <a href="https://www.linkedin.com/in/oguzhanekici" target="_blank" class="border border-slate-700 hover:bg-slate-800 transition-all px-8 py-3 rounded-full font-bold text-white flex items-center gap-2">
+                <i class="fab fa-linkedin text-xl text-sky-400"></i> LinkedIn Hesabı
             </a>
         </div>
     </header>
+
     <main class="max-w-4xl mx-auto px-6 pb-20">
-        <h2 class="text-2xl font-bold mb-8 border-b border-slate-800 pb-2">Aktif Projeler</h2>
+        <h2 class="text-2xl font-bold mb-8 border-b border-slate-800 pb-2 flex items-center gap-2">
+            <i class="fas fa-code text-sky-400"></i> Aktif Projeler
+        </h2>
         
         <div class="grid md:grid-cols-2 gap-6">
-            <div class="card p-6 rounded-2xl">
-                <div class="text-sky-400 text-3xl mb-4"><i class="fas fa-wallet"></i></div>
+            <div class="card p-6 rounded-2xl group">
+                <div class="text-sky-400 text-3xl mb-4 transition-transform group-hover:scale-110"><i class="fas fa-wallet"></i></div>
                 <h3 class="text-xl font-bold mb-2">OmniSpend</h3>
                 <p class="text-slate-400 text-sm mb-4">Finansal verileri analiz eden ve harcama alışkanlıklarını optimize eden akıllı finans asistanı.</p>
-                <span class="text-xs font-mono bg-sky-900/30 text-sky-400 px-2 py-1 rounded">Flutter/Dart</span>
+                <span class="text-xs font-mono bg-sky-900/30 text-sky-400 px-3 py-1 rounded-full border border-sky-800">Flutter / Dart</span>
             </div>
 
-            <div class="card p-6 rounded-2xl">
-                <div class="text-emerald-400 text-3xl mb-4"><i class="fas fa-brain"></i></div>
+            <div class="card p-6 rounded-2xl group">
+                <div class="text-emerald-400 text-3xl mb-4 transition-transform group-hover:scale-110"><i class="fas fa-brain"></i></div>
                 <h3 class="text-xl font-bold mb-2">Focus Flow</h3>
                 <p class="text-slate-400 text-sm mb-4">Üretkenliği artırmak için tasarlanmış, veri odaklı odaklanma ve zaman yönetimi uygulaması.</p>
-                <span class="text-xs font-mono bg-emerald-900/30 text-emerald-400 px-2 py-1 rounded">Mobile App</span>
+                <span class="text-xs font-mono bg-emerald-900/30 text-emerald-400 px-3 py-1 rounded-full border border-emerald-800">Mobile App</span>
             </div>
         </div>
 
@@ -68,10 +85,10 @@
                 <i class="fas fa-briefcase text-sky-400"></i> Deneyim & Yetkinlikler
             </h2>
 
-            <div class="card p-6 rounded-2xl mb-8 border-l-4 border-l-sky-500">
+            <div class="card p-6 rounded-2xl mb-8 border-l-4 border-l-sky-500 bg-slate-800/50">
                 <h3 class="text-xl font-bold text-white">IT Stajyeri</h3>
                 <p class="text-sky-400 font-medium mb-2">MED-KİM | Bilgi İşlem Departmanı</p>
-                <p class="text-slate-400 text-sm leading-relaxed">
+                <p class="text-slate-400 text-sm leading-relaxed italic">
                     IT operasyonları, sistem yönetimi ve teknik destek süreçlerinde aktif rol aldım. 
                     Şirket içi teknolojik altyapının sürdürülebilirliği üzerine deneyim kazandım.
                 </p>
@@ -82,46 +99,46 @@
                 <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors">📊 Veri Analizi (Oracle)</span>
                 <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors">🗄️ MySQL</span>
                 <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors">🌐 HTML / CSS</span>
-                <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors">🐍 Python & Java (Basic)</span>
-                <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors">💻 C / C++ (Basic)</span>
-                <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors">📄 MS Office (Word/Excel)</span>
+                <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors">🐍 Python & Java</span>
+                <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors">💻 C / C++</span>
+                <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors">📄 MS Office (Excel Specialist)</span>
             </div>
         </section>
+
         <section class="mt-16">
             <h2 class="text-2xl font-bold mb-8 border-b border-slate-800 pb-2 flex items-center gap-2">
                 <i class="fas fa-certificate text-emerald-400"></i> Lisanslar ve Sertifikalar
             </h2>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="card p-5 rounded-2xl flex items-start gap-4 hover:border-emerald-500 transition-all border-l-2 border-l-emerald-500">
+                <div class="card p-5 rounded-2xl flex items-start gap-4 hover:border-emerald-500 border-l-2 border-l-emerald-500 transition-all">
                     <div class="text-emerald-400 text-3xl mt-1"><i class="fas fa-database"></i></div>
                     <div>
                         <h3 class="font-bold text-white text-lg leading-tight">Veri Mühendisliği</h3>
                         <p class="text-slate-400 text-sm">Enerjisa</p>
-                        <p class="text-slate-500 text-[10px] mt-2 font-mono">ID: 01215551505812</p>
-                        <p class="text-slate-500 text-xs mt-1 italic">Ekim 2021</p>
+                        <p class="text-slate-500 text-[10px] mt-2 font-mono uppercase">ID: 01215551505812</p>
+                        <p class="text-slate-500 text-xs mt-1 italic italic">Ekim 2021</p>
                     </div>
                 </div>
 
-                <div class="card p-5 rounded-2xl flex items-start gap-4 hover:border-sky-500 transition-all border-l-2 border-l-sky-500">
+                <div class="card p-5 rounded-2xl flex items-start gap-4 hover:border-sky-500 border-l-2 border-l-sky-500 transition-all">
                     <div class="text-sky-400 text-3xl mt-1"><i class="fas fa-plane"></i></div>
                     <div>
                         <h3 class="font-bold text-white text-lg leading-tight">Aerospace Career Summit</h3>
                         <p class="text-slate-400 text-sm">TEI - TUSAŞ Motor Sanayii A.Ş.</p>
-                        <p class="text-slate-500 text-xs mt-4 italic text-right w-full">Ekim 2021</p>
+                        <p class="text-slate-500 text-xs mt-4 italic text-right">Ekim 2021</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="text-center pb-10 text-slate-500 text-sm">
-        <div class="flex justify-center gap-6 mb-4 text-xl">
-            <a href="https://github.com/oguzhanekici" class="hover:text-white"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/oguzhanekici" class="hover:text-white"><i class="fab fa-linkedin"></i></a>
+    <footer class="text-center pb-12 border-t border-slate-800 pt-10 text-slate-500 text-sm">
+        <div class="flex justify-center gap-8 mb-6 text-2xl">
+            <a href="https://github.com/oguzhanekici" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/oguzhanekici" target="_blank" class="hover:text-sky-400 transition-colors"><i class="fab fa-linkedin"></i></a>
         </div>
-        <p>© 2026 Oğuzhan Ekici</p>
+        <p>© 2026 Oğuzhan Ekici | Built with Tailwind CSS</p>
     </footer>
-
 </body>
 </html>
