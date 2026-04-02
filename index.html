@@ -32,6 +32,22 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* --- ZOOM VE MODAL İYİLEŞTİRMELERİ --- */
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 10px; }
+        
+        #modalImg { 
+            transition: transform 0.3s ease; 
+            cursor: zoom-in; 
+            min-width: 1400px; /* Görselin başlangıçta küçük büzülmesini engeller */
+        }
+        #modalImg.zoomed { 
+            transform: scale(1.6); /* Tıklayınca %160 zoom yapar */
+            cursor: zoom-out; 
+        }
+        /* ------------------------------------ */
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -188,12 +204,15 @@
             </div>
         </div>
 
-        <div id="projectModal" onclick="closeModal()" class="fixed inset-0 z-50 hidden bg-black/90 items-center justify-center p-4">
-            <div class="relative max-w-5xl w-full" onclick="event.stopPropagation()">
-                <button onclick="closeModal()" class="absolute -top-12 right-0 text-white text-3xl hover:text-sky-400 transition-colors">
-                    <i class="fas fa-times"></i>
+        <div id="projectModal" onclick="closeModal()" class="fixed inset-0 z-50 hidden bg-black/95 items-center justify-center p-0">
+            <div class="relative w-full h-full overflow-auto custom-scrollbar" onclick="event.stopPropagation()">
+                <button onclick="closeModal()" class="fixed top-8 right-8 text-white text-5xl hover:text-sky-400 transition-all z-[60] drop-shadow-lg">
+                    &times;
                 </button>
-                <img src="medkim-erp.png" class="w-full rounded-lg shadow-2xl border border-slate-700" alt="MEDKİM ERP Screenshot">
+                
+                <div class="flex items-center justify-center p-8 min-h-full">
+                    <img src="medkim-erp.png" id="modalImg" class="rounded-lg shadow-2xl border border-slate-700" alt="MEDKİM ERP Screenshot">
+                </div>
             </div>
         </div>
 
@@ -274,14 +293,28 @@
     </footer>
 
     <script>
+        const modalImg = document.getElementById('modalImg');
+
         function openModal() {
-            document.getElementById('projectModal').style.display = 'flex';
+            document.getElementById('projectModal').style.display = 'block';
             document.body.style.overflow = 'hidden'; 
         }
+
         function closeModal() {
             document.getElementById('projectModal').style.display = 'none';
             document.body.style.overflow = 'auto'; 
+            modalImg.classList.remove('zoomed'); // Kapatınca zoomu sıfırla
         }
+
+        // Resme tıklayınca zoom aç/kapat
+        modalImg.addEventListener('click', function() {
+            this.classList.toggle('zoomed');
+        });
+
+        // ESC tuşu ile kapatma desteği
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") closeModal();
+        });
     </script>
 </body>
 </html>
