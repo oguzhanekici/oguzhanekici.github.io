@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
-        // Tailwind dark mode yapılandırması
         tailwind.config = {
             darkMode: 'class',
         }
@@ -20,45 +19,63 @@
     <style>
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #0f172a; 
-            color: #f8fafc; 
             scroll-behavior: smooth;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* --- TEMA DEĞİŞİKLİKLERİ --- */
-        .light body {
-            background-color: #f1f5f9;
-            color: #1e293b;
+        /* --- TEMA ÖZELLEŞTİRMELERİ --- */
+        /* Dark Mode */
+        .dark body { background-color: #0f172a; color: #f8fafc; }
+        .dark .card { background: #1e293b; border: 1px solid #334155; }
+        .dark .text-slate-400 { color: #94a3b8; }
+        .dark .border-slate-800 { border-color: #1e293b; }
+        .dark .bg-slate-800\/20 { background-color: rgba(30, 41, 59, 0.2); }
+
+        /* --- SOFT & KURUMSAL LIGHT MODE (REVİZE EDİLDİ) --- */
+        .light body { 
+            background-color: #f8fafc; /* Yumuşak buz grisi arka plan */
+            color: #1e293b; /* Yumuşak koyu gri metinler */
         }
-        .light .card {
-            background: #ffffff;
-            border-color: #e2e8f0;
+        .light .card { 
+            background: rgba(255, 255, 255, 0.9); /* Hafif saydam cam efekti */
+            border-color: #e2e8f0; /* Hassas, ince sınır çizgisi */
+            backdrop-filter: blur(5px); /* Cam efekti için bulanıklık */
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03); /* Çok hafif, doğal gölge */
         }
-        .light .text-slate-400 { color: #64748b; }
-        .light .bg-slate-800\/20 { background-color: rgba(0,0,0,0.05); }
-        .light .border-slate-800 { border-color: #e2e8f0; }
-        .light .border-slate-700 { border-color: #cbd5e1; }
+        .light .text-slate-400 { color: #64748b; } /* Yardımcı metinler */
+        .light .bg-slate-800\/20 { 
+            background-color: rgba(148, 163, 184, 0.1); /* Hafif gri ikon arka planı */
+        }
+        .light .border-slate-800 { 
+            border-color: #e2e8f0; /* Başlık altındaki çizgiler */
+        }
+        .light .text-white { 
+            color: #1e293b; /* Beyaz metinleri koyulaştır */
+        }
+        .light .light\:text-slate-900 { 
+            color: #0f172a; /* Özel vurgu metinleri */
+        }
+        .light .light\:border-slate-300 { 
+            border-color: #cbd5e1; /* İkinci derece çizgiler */
+        }
+        /* Gradient metinler için daha derin renkler (kurumsal etki) */
+        .light .text-gradient {
+            background: linear-gradient(to right, #0284c7, #059669); /* Derin gök mavisi & zümrüt */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         /* -------------------------- */
 
-        .card { 
-            background: #1e293b; 
-            border: 1px solid #334155; 
-            transition: all 0.3s ease; 
-        }
+        .card { transition: all 0.3s ease; }
         .card:hover { 
             border-color: #38bdf8; 
             transform: translateY(-5px);
             box-shadow: 0 10px 40px -15px rgba(56, 189, 248, 0.3);
         }
-        .text-gradient {
-            background: linear-gradient(to right, #38bdf8, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
+        
         .custom-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
+        .light .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 10px; }
         
         #modalImg { 
@@ -74,12 +91,12 @@
 </head>
 <body class="font-sans antialiased">
     <div class="fixed top-6 right-6 z-[100]">
-        <button onclick="toggleTheme()" class="p-3 rounded-xl bg-slate-800 dark:bg-white text-yellow-400 dark:text-slate-900 shadow-xl hover:scale-110 transition-all border border-slate-700">
+        <button onclick="toggleTheme()" class="p-3 rounded-xl bg-slate-800 dark:bg-white text-yellow-400 dark:text-slate-900 shadow-xl hover:scale-110 transition-all border border-slate-700 dark:border-slate-200">
             <i id="themeIcon" class="fas fa-moon"></i>
         </button>
     </div>
 
-    <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sky-900/20 via-slate-900 to-slate-900 dark:via-slate-900 light:from-sky-100"></div>
+    <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sky-900/10 via-transparent to-transparent opacity-60 dark:opacity-100"></div>
 
     <header class="max-w-4xl mx-auto pt-24 px-6 text-center"> 
         <h1 class="text-5xl md:text-7xl font-bold mb-12 text-gradient pb-10 leading-[1.6]">
@@ -88,7 +105,7 @@
         
         <p class="text-lg md:text-xl text-slate-400 mb-12 leading-loose">
             Yeditepe Üniversitesi Bilişim Sistemleri Mezunu <br>
-            <span class="text-sky-400 font-semibold italic">Data Analyst</span> & <span class="text-emerald-400 font-semibold italic">Mobile Developer</span>
+            <span class="text-sky-500 dark:text-sky-400 font-semibold italic">Data Analyst</span> & <span class="text-emerald-500 dark:text-emerald-400 font-semibold italic">Mobile Developer</span>
         </p>
         
         <div class="flex flex-wrap justify-center gap-6 mb-16">
@@ -96,7 +113,7 @@
                 <i class="fas fa-file-pdf text-xl"></i> Özgeçmişi Görüntüle
             </a>
 
-            <a href="https://www.linkedin.com/in/oguzhanekici" target="_blank" class="border border-slate-700 hover:bg-slate-800 transition-all px-8 py-3 rounded-full font-bold text-white flex items-center gap-2 dark:text-white light:text-slate-900 light:border-slate-300">
+            <a href="https://www.linkedin.com/in/oguzhanekici" target="_blank" class="border border-slate-700 hover:bg-slate-800 transition-all px-8 py-3 rounded-full font-bold flex items-center gap-2 dark:text-white light:text-slate-900 light:border-slate-300">
                 <i class="fab fa-linkedin text-xl text-sky-400"></i> LinkedIn Hesabı
             </a>
             <a href="mailto:oguzhanekici3435@gmail.com" class="bg-emerald-600 hover:bg-emerald-500 transition-all px-6 py-3 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-emerald-900/20 text-white text-sm md:text-base">
