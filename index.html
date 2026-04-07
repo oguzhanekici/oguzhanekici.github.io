@@ -58,17 +58,13 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 10px; }
         
-        /* MOBİL UYUMLU GÖRSEL AYARI */
         #modalImg { 
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            transition: transform 0.3s ease; 
             cursor: zoom-in; 
-            max-width: 95%;
-            max-height: 90vh;
-            object-fit: contain;
-            display: block;
+            min-width: 1400px; 
         }
         #modalImg.zoomed { 
-            transform: scale(2.5); 
+            transform: scale(1.6); 
             cursor: zoom-out; 
         }
 
@@ -138,9 +134,9 @@
             
             <div class="relative z-10">
                 <div class="flex items-center gap-6 mb-8 border-b border-white/10 pb-6">
-                    <div class="w-24 h-24 mx-auto mb-6 shadow-2xl shadow-sky-500/20 overflow-hidden rounded-3xl border-2 border-sky-500/50 bg-slate-800">
-    <img src="logo.jpg" alt="Oğuzhan Ekici Logo" class="w-full h-full object-cover">
-</div>
+                    <div class="w-20 h-20 shadow-2xl rotate-3 overflow-hidden rounded-2xl border-2 border-sky-500/50 bg-slate-800 shrink-0">
+                        <img src="logo.jpg" alt="Oğuzhan Ekici" class="w-full h-full object-cover -rotate-3 scale-110">
+                    </div>
                     <div>
                         <h2 class="text-3xl font-bold dark:text-white tracking-tight">Oğuzhan Ekici</h2>
                         <p class="text-sky-400 text-xs font-mono uppercase tracking-[0.2em] mt-2">Data Analyst & Developer</p>
@@ -352,12 +348,14 @@
             </div>
         </div>
 
-        <div id="projectModal" onclick="closeModal()" class="fixed inset-0 z-50 hidden bg-black/95 flex items-center justify-center p-0">
-            <button onclick="closeModal()" class="fixed top-8 right-8 text-white text-5xl hover:text-sky-400 transition-all z-[60] drop-shadow-lg">
-                &times;
-            </button>
-            <div class="w-full h-full flex items-center justify-center overflow-auto custom-scrollbar">
-                <img src="medkim-erp.png" id="modalImg" onclick="event.stopPropagation(); toggleZoom()" class="rounded-lg shadow-2xl" alt="MEDKİM ERP Screenshot">
+        <div id="projectModal" onclick="closeModal()" class="fixed inset-0 z-50 hidden bg-black/95 items-center justify-center p-0">
+            <div class="relative w-full h-full overflow-auto custom-scrollbar" onclick="event.stopPropagation()">
+                <button onclick="closeModal()" class="fixed top-8 right-8 text-white text-5xl hover:text-sky-400 transition-all z-[60] drop-shadow-lg">
+                    &times;
+                </button>
+                <div class="flex items-center justify-center p-8 min-h-full">
+                    <img src="medkim-erp.png" id="modalImg" class="rounded-lg shadow-2xl border border-slate-700" alt="MEDKİM ERP Screenshot">
+                </div>
             </div>
         </div>
 
@@ -467,7 +465,7 @@
             }
         });
 
-        // --- GÖRSEL VE MODAL YÖNETİMİ ---
+        // --- MODAL VE DİĞER FONKSİYONLAR ---
         const modalImg = document.getElementById('modalImg');
 
         function toggleAbout(show) {
@@ -483,10 +481,13 @@
             }
         }
 
+        window.addEventListener('click', function(e) {
+            const aboutModal = document.getElementById('aboutModal');
+            if (e.target === aboutModal) toggleAbout(false);
+        });
+
         function openModal() {
-            const modal = document.getElementById('projectModal');
-            modalImg.classList.remove('zoomed'); // Her açılışta zoomu sıfırla
-            modal.style.display = 'flex';
+            document.getElementById('projectModal').style.display = 'block';
             document.body.style.overflow = 'hidden'; 
         }
 
@@ -496,9 +497,9 @@
             modalImg.classList.remove('zoomed'); 
         }
 
-        function toggleZoom() {
-            modalImg.classList.toggle('zoomed');
-        }
+        modalImg.addEventListener('click', function() {
+            this.classList.toggle('zoomed');
+        });
 
         function copyEmail() {
             const email = "oguzhanekici3435@gmail.com";
