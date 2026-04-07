@@ -72,17 +72,20 @@
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
 
-        /* --- HAKKIMDA MODAL STİLLERİ --- */
+        /* --- YENİ HAKKIMDA MODAL STİLLERİ --- */
         #aboutModal {
-            backdrop-filter: blur(12px);
-            transition: opacity 0.3s ease;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease-in-out;
         }
         .about-content {
-            animation: modalPop 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(30, 41, 59, 0.7); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        @keyframes modalPop {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
@@ -90,39 +93,46 @@
     <div id="copyToast">E-posta kopyalandı! ✅</div>
 
     <div class="fixed top-6 right-6 z-40">
-        <button onclick="toggleAbout(true)" class="bg-slate-800/80 hover:bg-sky-600 border border-slate-700 hover:border-sky-400 text-white px-5 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 shadow-xl backdrop-blur-md">
-            <i class="fas fa-user-circle text-sky-400 group-hover:text-white"></i> Hakkımda
+        <button onclick="toggleAbout(true)" class="bg-slate-800/80 hover:bg-sky-600 border border-slate-700 hover:border-sky-400 text-white px-5 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 shadow-xl backdrop-blur-md group">
+            <i class="fas fa-user-circle text-sky-400 group-hover:text-white transition-colors"></i> Hakkımda
         </button>
     </div>
 
-    <div id="aboutModal" class="fixed inset-0 z-[100] hidden bg-slate-950/80 flex items-center justify-center p-4">
-        <div class="about-content bg-slate-900 border border-slate-700 w-full max-w-md rounded-3xl p-8 shadow-2xl relative">
-            <button onclick="toggleAbout(false)" class="absolute top-4 right-5 text-slate-400 hover:text-white text-2xl">&times;</button>
+    <div id="aboutModal" class="fixed inset-0 z-[100] hidden bg-slate-950/40 flex items-center justify-center p-4">
+        <div class="about-content w-full max-w-md rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-sky-500/10 blur-[80px]"></div>
             
-            <div class="text-center">
-                <div class="w-20 h-20 bg-gradient-to-tr from-sky-500 to-emerald-500 rounded-2xl mx-auto mb-4 flex items-center justify-center text-3xl shadow-lg shadow-sky-500/20">
-                    <i class="fas fa-user-tie text-white"></i>
+            <button onclick="toggleAbout(false)" class="absolute top-6 right-6 text-slate-400 hover:text-white text-2xl transition-colors z-20">&times;</button>
+            
+            <div class="relative z-10 text-center">
+                <div class="w-24 h-24 bg-gradient-to-tr from-sky-500 to-emerald-500 rounded-3xl mx-auto mb-6 flex items-center justify-center text-4xl shadow-2xl shadow-sky-500/20 rotate-3">
+                    <i class="fas fa-user-tie text-white -rotate-3"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-white mb-1">Oğuzhan Ekici</h2>
-                <p class="text-sky-400 text-sm font-mono mb-6 italic">Data Analyst & Mobile Developer</p>
                 
-             <div class="text-slate-300 text-sm leading-relaxed text-left space-y-4">
-    <p>
-        Merhaba! Ben Oğuzhan. Yeditepe Üniversitesi Bilişim Sistemleri bölümünden mezun oldum. Teknoloji dünyasında verinin gücü ile mobil kullanıcı deneyimini birleştirmeyi seviyorum.
-    </p>
-    <p>
-        Kariyer yolculuğumda <strong>MED-KİM Bilgi İşlem</strong> departmanındaki stajım önemli bir yer tutuyor. Burada <strong>Oracle 11g</strong> altyapısını kullanarak veri analizi ve raporlama süreçlerini yönettim; aynı zamanda donanımsal ve yazılımsal teknik destek süreçlerinde aktif rol aldım.
-    </p>
-    <p>
-        Şu an aktif olarak <strong>Python</strong> ile veri analizi ve dashboard çözümleri üretiyor, <strong>Flutter</strong> kullanarak kullanıcı odaklı mobil uygulamalar geliştiriyorum. Karmaşık finansal verileri yapay zeka ile anlamlı hale getirmek en büyük tutkum.
-    </p>
-</div>
-
-                <div class="mt-8 pt-6 border-t border-slate-800 flex justify-center gap-6 text-xl">
-                    <a href="https://github.com/oguzhanekici" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/oguzhanekici" target="_blank" class="text-slate-400 hover:text-sky-400 transition-colors"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:oguzhanekici3435@gmail.com" class="text-slate-400 hover:text-emerald-400 transition-colors"><i class="fas fa-envelope"></i></a>
+                <h2 class="text-3xl font-bold text-white mb-1 tracking-tight">Oğuzhan Ekici</h2>
+                <p class="text-sky-400 text-sm font-mono mb-8 italic uppercase tracking-widest">Data Analyst & Mobile Dev</p>
+                
+                <div class="text-slate-200 text-[15px] leading-relaxed text-left space-y-4 font-medium">
+                    <p class="bg-white/5 p-4 rounded-2xl border border-white/5">
+                        Merhaba! Ben Oğuzhan. Yeditepe Üniversitesi Bilişim Sistemleri mezunuyum. Verinin gücü ile mobil dünyayı birleştiriyorum.
+                    </p>
+                    <p class="px-2 text-slate-400">
+                        <strong>MED-KİM</strong> bünyesinde Oracle 11g ile veri analizi ve IT destek süreçlerinde uzmanlaştım.
+                    </p>
+                    <p class="bg-sky-500/5 p-4 rounded-2xl border border-sky-500/10 text-sky-100">
+                        Şu an <strong>Python Dash</strong> ile dashboardlar geliştiriyor ve <strong>Flutter</strong> ile finans odaklı mobil çözümler üretiyorum.
+                    </p>
                 </div>
+
+                <div class="mt-8 pt-6 border-t border-white/10 flex justify-center gap-8 text-2xl">
+                    <a href="https://github.com/oguzhanekici" target="_blank" class="text-slate-400 hover:text-white transition-all hover:scale-110"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/oguzhanekici" target="_blank" class="text-slate-400 hover:text-sky-400 transition-all hover:scale-110"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:oguzhanekici3435@gmail.com" class="text-slate-400 hover:text-emerald-400 transition-all hover:scale-110"><i class="fas fa-envelope"></i></a>
+                </div>
+                
+                <button onclick="toggleAbout(false)" class="mt-8 w-full py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-sm font-bold transition-all text-white">
+                    Kapat
+                </button>
             </div>
         </div>
     </div>
@@ -377,14 +387,16 @@
     <script>
         const modalImg = document.getElementById('modalImg');
 
-        // HAKKIMDA PANELİ KONTROLÜ
+        // HAKKIMDA PANELİ KONTROLÜ (GÜNCELLENMİŞ)
         function toggleAbout(show) {
             const aboutModal = document.getElementById('aboutModal');
             if (show) {
                 aboutModal.classList.remove('hidden');
+                aboutModal.classList.add('flex');
                 document.body.style.overflow = 'hidden';
             } else {
                 aboutModal.classList.add('hidden');
+                aboutModal.classList.remove('flex');
                 document.body.style.overflow = 'auto';
             }
         }
