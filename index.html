@@ -29,7 +29,7 @@
         .dark .card { background: #1e293b; border: 1px solid #334155; }
         .dark .card:hover { border-color: #38bdf8; box-shadow: 0 10px 40px -15px rgba(56, 189, 248, 0.3); }
 
-        /* Light Mode Ayarları - Düzeltildi */
+        /* Light Mode Ayarları */
         .light body { background-color: #f1f5f9; color: #1e293b; }
         .light .card { background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); color: #1e293b; }
         .light .card:hover { border-color: #0ea5e9; transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
@@ -54,7 +54,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* --- ZOOM VE MODAL --- */
         .custom-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 10px; }
@@ -69,7 +68,6 @@
             cursor: zoom-out; 
         }
 
-        /* Kopyalama Bildirimi Stili */
         #copyToast {
             visibility: hidden;
             min-width: 200px;
@@ -93,7 +91,6 @@
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
 
-        /* --- HAKKIMDA MODAL STİLLERİ --- */
         #aboutModal {
             backdrop-filter: blur(8px);
             transition: all 0.3s ease-in-out;
@@ -310,44 +307,35 @@
         </h2>
         
         <div class="grid md:grid-cols-2 gap-6">
-            <div class="card p-6 rounded-2xl group border-l-4 border-l-sky-500 flex flex-col">
+            <div class="card p-6 rounded-2xl group border-l-4 border-l-sky-500 flex flex-col h-full">
                 <div class="text-sky-400 text-3xl mb-4 transition-transform group-hover:scale-110">
                     <i class="fas fa-chart-pie"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2">MEDKİM ERP | Hakediş Paneli</h3>
                 <p class="dark:text-slate-400 text-sm mb-4">Python Dash ile geliştirilmiş, hakediş verilerini analiz eden kurumsal dashboard çözümü.</p>
                 <div class="flex justify-between items-center mt-auto">
-                    <span class="text-xs font-mono bg-sky-900/30 text-sky-400 px-3 py-1 rounded-full border border-sky-800">Python / Dash</span>
+                    <span class="text-xs font-mono bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 px-3 py-1 rounded-full border border-sky-200 dark:border-sky-800">Python / Dash</span>
                     <button onclick="openModal()" class="text-sky-400 text-xs font-bold hover:underline underline-offset-4 flex items-center gap-1">
                         <i class="fas fa-image"></i> Projeyi Görüntüle
                     </button>
                 </div>
             </div>
 
-            <div class="card p-6 rounded-2xl group flex flex-col">
+            <div class="card p-6 rounded-2xl group flex flex-col h-full">
                 <div class="text-sky-400 text-3xl mb-4 transition-transform group-hover:scale-110"><i class="fas fa-wallet"></i></div>
                 <h3 class="text-xl font-bold mb-2">OmniSpend</h3>
                 <p class="dark:text-slate-400 text-sm mb-4">Finansal verileri analiz eden ve harcama alışkanlıklarını optimize eden akıllı finans asistanı.</p>
                 <div class="mt-auto">
-                    <span class="text-xs font-mono bg-sky-900/30 text-sky-400 px-3 py-1 rounded-full border border-sky-800">Flutter / Dart</span>
+                    <span class="text-xs font-mono bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 px-3 py-1 rounded-full border border-sky-200 dark:border-sky-800">Flutter / Dart</span>
                 </div>
             </div>
 
-            <div class="card p-6 rounded-2xl group flex flex-col">
+            <div class="card p-6 rounded-2xl group flex flex-col h-full">
                 <div class="text-emerald-400 text-3xl mb-4 transition-transform group-hover:scale-110"><i class="fas fa-brain"></i></div>
                 <h3 class="text-xl font-bold mb-2">Focus Flow</h3>
                 <p class="dark:text-slate-400 text-sm mb-4">Üretkenliği artırmak için tasarlanmış, veri odaklı odaklanma ve zaman yönetimi uygulaması.</p>
                 <div class="mt-auto">
-                    <span class="text-xs font-mono bg-emerald-900/30 text-emerald-400 px-3 py-1 rounded-full border border-emerald-800">Mobile App</span>
-                </div>
-            </div>
-
-            <div class="card p-6 rounded-2xl group flex flex-col">
-                <div class="text-orange-400 text-3xl mb-4 transition-transform group-hover:scale-110"><i class="fas fa-database"></i></div>
-                <h3 class="text-xl font-bold mb-2">DataInsight Pro</h3>
-                <p class="dark:text-slate-400 text-sm mb-4">Oracle ve MySQL veritabanlarından çekilen verileri otomatik raporlayan Python tabanlı araç.</p>
-                <div class="mt-auto">
-                    <span class="text-xs font-mono bg-orange-900/30 text-orange-400 px-3 py-1 rounded-full border border-orange-800">Data Analytics</span>
+                    <span class="text-xs font-mono bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">Mobile App</span>
                 </div>
             </div>
         </div>
@@ -378,14 +366,14 @@
             </div>
             
            <div class="flex flex-wrap gap-3 mb-10">
-    <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">🚀 Mobil Uygulama Geliştirme</span>
-    <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">📊 Veri Analizi (Oracle)</span>
-    <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">🗄️ MySQL & SQL Server</span>
-    <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">🌐 HTML / CSS / JS</span>
-    <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">🐍 Python & Java</span>
-    <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">💻 C / C++ / C#</span>
-    <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">📄 MS Office (Excel Specialist)</span>
-</div>
+                <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">🚀 Mobil Uygulama Geliştirme</span>
+                <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">📊 Veri Analizi (Oracle)</span>
+                <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">🗄️ MySQL & SQL Server</span>
+                <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">🌐 HTML / CSS / JS</span>
+                <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">🐍 Python & Java</span>
+                <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">💻 C / C++ / C#</span>
+                <span class="bg-slate-800 dark:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm font-medium hover:border-sky-500 transition-colors text-white dark:text-white">📄 MS Office (Excel Specialist)</span>
+            </div>
         </section>
 
         <section class="mt-16">
@@ -505,13 +493,6 @@
             this.classList.toggle('zoomed');
         });
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === "Escape") {
-                closeModal();
-                toggleAbout(false);
-            }
-        });
-
         function copyEmail() {
             const email = "oguzhanekici3435@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
@@ -520,6 +501,13 @@
                 setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2000);
             });
         }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                closeModal();
+                toggleAbout(false);
+            }
+        });
     </script>
 </body>
 </html>
